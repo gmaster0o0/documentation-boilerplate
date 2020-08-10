@@ -1,0 +1,36 @@
+{
+  "name": "api-documentation-boiler-plate",
+  "version": "1.0.0",
+  "description": "API documentation boiler plate and generator",
+  "scripts": {
+    "test": "swagger-cli validate build/openapi3.yaml",
+    "build": "swagger-cli bundle documentation/openapi.yaml --outfile build/openapi3.yaml --type yaml",
+    "api-gen": "ng-openapi-gen --input _build/es.yaml --output generated/api"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "ng-openapi-gen": "^0.12.1",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-angular": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "cz-conventional-changelog": "^3.2.0"
+  },
+  "devDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmaster0o0/documentation-boilerplate.git"
+  },
+  "author": "gmaster0o0"
+}
